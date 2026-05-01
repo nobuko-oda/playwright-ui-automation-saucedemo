@@ -1,27 +1,43 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 
-test('TC-01: Login with valid credentials', async ({ page }) => {
-  await page.goto('https://www.saucedemo.com/');
+const BASE_URL = 'https://www.saucedemo.com/';
 
-  await page.fill('#user-name', 'standard_user');
-  await page.fill('#password', 'secret_sauce');
+async function login(page: Page, username: string, password: string) {
+  await page.goto(BASE_URL);
+  await page.fill('#user-name', username);
+  await page.fill('#password', password);
   await page.click('#login-button');
+}
 
-  await expect(page).toHaveURL(/inventory/);
+test.describe('SauceDemo Login - Smoke and Regression Tests', () => {
+  test('TC-01: Login with valid credentials', async ({ page }) => {
+    await login(page, 'standard_user', 'secret_sauce');
+
+    await expect(page).toHaveURL(/inventory.html/);
+    await expect(page.locator('.title')).toHaveText('Products');
+    await expect(page.locator('.inventory_list')).toBeVisible();
+  });
+
+  test('TC-02: Login with locked out user', async ({ page }) => {
+    await login(page, 'locked_out_user', 'secret_sauce');
+
+    await expect(page.locator('[data-test="error"]')).toContainText('locked out');
+    await expect(page).toHaveURL(BASE_URL);
+  });
+
+  test('TC-03: Login with invalid password', async ({ page }) => {
+    await login(page, 'standard_user', 'wrong_password');
+
+    await expect(page.locator('[data-test="error"]')).toBeVisible();
+    await expect(page).toHaveURL(BASE_URL);
+  });
 });
 
-test('TC-03: Login with invalid password', async ({ page }) => {
-  await page.goto('https://www.saucedemo.com/');
+test.describe('SauceDemo Session and Navigation Tests', () => {
+  test('TC-06: Access inventory without login', async ({ page }) => {
+    await page.goto(`${BASE_URL}inventory.html`);
 
-  await page.fill('#user-name', 'standard_user');
-  await page.fill('#password', 'wrong_password');
-  await page.click('#login-button');
-
-  await expect(page.locator('[data-test="error"]')).toBeVisible();
-});
-
-test('TC-06: Access inventory without login', async ({ page }) => {
-  await page.goto('https://www.saucedemo.com/inventory.html');
-
-  await expect(page).toHaveURL('https://www.saucedemo.com/');
+    await expect(page).toHaveURL(BASE_URL);
+    await expect(page.locator('[data-test="error"]')).toContainText('You can only access');
+  });
 });
