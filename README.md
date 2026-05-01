@@ -7,17 +7,30 @@ This project demonstrates automated end-to-end testing using Playwright.
 High-priority login and session scenarios:
 
 - TC-01: Login with valid credentials
+- TC-02: Login with locked out user
 - TC-03: Login with invalid password
 - TC-06: Access inventory without login
 
-## Key Features
-- Cross-browser testing (Chromium, Firefox, WebKit)
-- Automated validation of authentication and session behavior
-- HTML test reports
+## Test Design Approach
+- Focusd on high-risk authentication and access control scenarios
+- Selected stable and repeatable test cases (high ROI for automation)
+- Mapped test cases to QA IDs for traceability (TC-XX format)
 
-## How to Run
+## Framework Structure
+- Reusable login function to reduce duplication
+- Test grouping using `test.describe`
+- Clear separation between:
+    - Authentication tests
+    - Session/navigation tests
+
+## Execution
+- Run across:
+    - Chromium
+    - Firefox
+    - WebKit
+- Example: 
 npx playwright test
 
-## Tech Stack
-- Playwright
-- TypeScript
+## Reporting 
+- HTML report generated after execution:
+npx playwright show-report
