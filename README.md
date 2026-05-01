@@ -34,3 +34,8 @@ npx playwright test
 ## Reporting 
 - HTML report generated after execution:
 npx playwright show-report
+
+## Tech Stack
+- Playwright
+- TypeScript
+- Node.js
