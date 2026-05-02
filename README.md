@@ -11,6 +11,15 @@ High-priority login and session scenarios:
 - TC-03: Invalid password validation
 - TC-06: Unauthorized inventory access validation
 
+## Test Data
+The following test users are used for validation:
+- `standard_user` / `swcret_sauce`
+    - Valid user for positive login scenarios
+- locked_out_user` / `secret_sauce`
+    - Used to validate account lock behavior
+- Invalid credentials (e.g., wrong password)
+    - Used for negative testing and error handling validation
+
 ## Test Design Approach
 - Focusd on high-risk authentication and access control scenarios
 - Selected stable and repeatable test cases (high ROI for automation)
