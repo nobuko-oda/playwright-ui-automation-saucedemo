@@ -3,13 +3,13 @@
 ## Overview
 This project demonstrates automated end-to-end testing using Playwright.
 
-## Test Scope
+## Test Scope / Covered Scenarios
 High-priority login and session scenarios:
 
-- TC-01: Login with valid credentials
-- TC-02: Login with locked out user
-- TC-03: Login with invalid password
-- TC-06: Access inventory without login
+- TC-01: Valid login and inverntory page validation
+- TC-02: Locked out user validation
+- TC-03: Invalid password validation
+- TC-06: Unauthorized inventory access validation
 
 ## Test Design Approach
 - Focusd on high-risk authentication and access control scenarios
@@ -22,6 +22,10 @@ High-priority login and session scenarios:
 - Clear separation between:
     - Authentication tests
     - Session/navigation tests
+- Page Object Model (POM) implementation:
+    - `LoginPage` handles login actions and error validation
+    - `InventoryPage` handles post-login validations
+- Improved maintainability by separating UI interactions from test logic
 
 ## Execution
 - Run across:
