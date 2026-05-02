@@ -1,16 +1,19 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
+import { InventoryPage } from '../pages/InventoryPage';
 
 test.describe('SauceDemo Login - Smoke and Regression Tests', () => {
     test('TC-01: Login with valid credentials', async ({ page }) => {
       const loginPage = new LoginPage(page);
+      const inventoryPage = new InventoryPage(page);
   
       await loginPage.goto();
       await loginPage.login('standard_user', 'secret_sauce');
-  
+      
       await expect(page).toHaveURL(/inventory.html/);
-      await expect(page.locator('.title')).toHaveText('Products');
-      await expect(page.locator('.inventory_list')).toBeVisible();
+      await inventoryPage.isLoaded();
+      await expect(inventoryPage.title).toHaveText('Products');
+      await expect(inventoryPage.inventoryList).toBeVisible();
     });
   
     test('TC-02: Login with locked out user', async ({ page }) => {
