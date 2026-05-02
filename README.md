@@ -13,7 +13,7 @@ High-priority login and session scenarios:
 
 ## Test Data
 The following test users are used for validation:
-- `standard_user` / `swcret_sauce`
+- `standard_user` / `secret_sauce`
     - Valid user for positive login scenarios
 - `locked_out_user` / `secret_sauce`
     - Used to validate account lock behavior
@@ -52,3 +52,21 @@ npx playwright show-report
 - Playwright
 - TypeScript
 - Node.js
+
+
+## Known Limitations / Future Improvements
+
+- No API-level validation (UI-only testing)
+- No test data management strategy (hardcoded credentials)
+- No CI/CD integration (e.g., GitHub Actions)
+- Limited negative scenarios
+- No visual regression testing
+- No mobile/responsive test coverage (currently desktop only)
+
+### Future Improvements
+
+- Add API tests for backend validation
+- Integrate with CI/CD pipeline (GitHub actions)
+- Expand negative and edge case coverage
+- Implement test data management strategy
+- Add mobile browser testing
