@@ -70,11 +70,20 @@ npx playwright show-report
     - Firefox
     - WebKit
 - Example: 
+```bash
 npx playwright test
+```
 
 ## Reporting 
 - HTML report generated after execution:
+```bash
 npx playwright show-report
+```
+
+### Sample Test Execution
+Playwright HTML report:
+
+![Test Report](screenshots/test-reporting.png)
 
 ## Tech Stack
 - Playwright
