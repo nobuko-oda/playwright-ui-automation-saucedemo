@@ -32,8 +32,8 @@ The following test users are used for validation:
     - Authentication tests
     - Session/navigation tests
 - Page Object Model (POM) implementation:
-    - [LoginPage](pages/LoginPage.ts) handles login actions and error validation
-    - [InventoryPage](pages/InventoryPage.ts) handles post-login validations
+    - [`LoginPage`](pages/LoginPage.ts) handles login actions and error validation
+    - [`InventoryPage`](pages/InventoryPage.ts) handles post-login validations
 - Improved maintainability by separating UI interactions from test logic
 
 ## How to Run
