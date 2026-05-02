@@ -15,7 +15,7 @@ High-priority login and session scenarios:
 The following test users are used for validation:
 - `standard_user` / `swcret_sauce`
     - Valid user for positive login scenarios
-- locked_out_user` / `secret_sauce`
+- `locked_out_user` / `secret_sauce`
     - Used to validate account lock behavior
 - Invalid credentials (e.g., wrong password)
     - Used for negative testing and error handling validation
