@@ -36,6 +36,34 @@ The following test users are used for validation:
     - `InventoryPage` handles post-login validations
 - Improved maintainability by separating UI interactions from test logic
 
+## How to Run
+
+1). Clone the repository
+```bash
+git clone https://github.com/nobuko-oda/playwright-ui-automation-saucedemo.git
+cd playwright-ui-automation-saucedemo
+```
+
+2). Install dependencies
+```bash
+npm install
+```
+
+3). Install Playwright browsers
+```bash
+npx playwright install
+```
+
+4). Run tests
+```bash
+npx playwright test
+```
+
+5). View HTML report
+```bash
+npx playwright show-report
+```
+
 ## Execution
 - Run across:
     - Chromium
