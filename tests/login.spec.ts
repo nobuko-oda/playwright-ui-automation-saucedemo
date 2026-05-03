@@ -3,7 +3,7 @@ import { LoginPage } from '../pages/LoginPage';
 import { InventoryPage } from '../pages/InventoryPage';
 
 test.describe('SauceDemo Login - Smoke and Regression Tests', () => {
-    test('TC-01: Login with valid credentials', async ({ page }) => {
+    test('TC-01: Login with valid credentials → user lands on inventory page', async ({ page }) => {
       const loginPage = new LoginPage(page);
       const inventoryPage = new InventoryPage(page);
   
@@ -16,7 +16,7 @@ test.describe('SauceDemo Login - Smoke and Regression Tests', () => {
       await expect(inventoryPage.inventoryList).toBeVisible();
     });
   
-    test('TC-02: Login with locked out user', async ({ page }) => {
+    test('TC-02: Login with locked out user → error message displayed → remain on login page', async ({ page }) => {
       const loginPage = new LoginPage(page);
   
       await loginPage.goto();
@@ -26,7 +26,7 @@ test.describe('SauceDemo Login - Smoke and Regression Tests', () => {
       await expect(page).toHaveURL('https://www.saucedemo.com/');
     });
   
-    test('TC-03: Login with invalid password', async ({ page }) => {
+    test('TC-03: Login with invalid password → error message displayed → remain on login page', async ({ page }) => {
       const loginPage = new LoginPage(page);
   
       await loginPage.goto();
@@ -38,7 +38,7 @@ test.describe('SauceDemo Login - Smoke and Regression Tests', () => {
   });
 
 test.describe('SauceDemo Session and Navigation Tests', () => {
-    test('TC-06: Access inventory without login', async ({ page }) => {
+    test('TC-06: Access inventory without login → redirect to login page → error message displayed', async ({ page }) => {
       await page.goto('https://www.saucedemo.com/inventory.html');
   
       await expect(page).toHaveURL(/saucedemo.com/);
