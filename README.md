@@ -11,7 +11,7 @@ This project showcases automated end-to-end testing with Playwright. It mirrors 
 - Clear test case structure with QA IDs (TC-XX)
 - Automated HTML reporting
 
-## Assumption
+## Assumptions
 - Application under test is stable and publicly accessible
 - Test data is static (provided by SauceDemo)
 
