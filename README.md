@@ -1,15 +1,19 @@
 # Playwright UI Automation – SauceDemo
 
 ## Overview
-This project demonstrates automated end-to-end testing using Playwright.
+This project showcases automated end-to-end testing with Playwright. It mirrors real-world QA practices by including structured test design, reusable automation, and cross-browser validation.
 
 ### Key Features
-- E2E UI test automation using Playwright
+- End-to-end UI test automation using Playwright
 - Page Object Model (POM) for maintainability
 - Cross-browser testing (Chromium, Firefox, webkit)
 - Reusable test methods (login, abstraction)
 - Clear test case structure with QA IDs (TC-XX)
 - Automated HTML reporting
+
+## Assumption
+- Application under test is stable and publicly accessible
+- Test data is static (provided by SauceDemo)
 
 ## Test Scope / Covered Scenarios
 High-priority login and session scenarios:
@@ -92,12 +96,12 @@ Playwright HTML report:
 npx playwright show-report
 ```
 
-## What This Project Demonstrates
+## Key QA Skills Demonstrated
 
 - Ability to design test scenarios based on risk (authentication & access control)
 - Implementation of maintainable automation using POM
-Understanding of cross-browser test execution
-Clean separation between test logic and UI interactions
+- Understanding of cross-browser test execution
+- Clean separation between test logic and UI interactions
 - Real-world QA practices applied to demo application
 
 ## Tech Stack
@@ -108,9 +112,9 @@ Clean separation between test logic and UI interactions
 
 ## Known Limitations / Future Improvements
 
-- No API-level validation (UI-only testing)
+- Currently focused on UI-level validation (API testing not included)
 - No test data management strategy (hardcoded credentials)
-- No CI/CD integration (e.g., GitHub Actions)
+- CI/CD integration not implemented yet (planned enhancement)
 - Limited negative scenarios
 - No visual regression testing
 - No mobile/responsive test coverage (currently desktop only)
