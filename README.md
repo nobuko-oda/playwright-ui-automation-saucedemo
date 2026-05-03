@@ -3,6 +3,14 @@
 ## Overview
 This project demonstrates automated end-to-end testing using Playwright.
 
+### Key Features
+- E2E UI test automation using Playwright
+- Page Object Model (POM) for maintainability
+- Cross-browser testing (Chromium, Firefox, webkit)
+- Reusable test methods (login, abstraction)
+- Clear test case structure with QA IDs (TC-XX)
+- Automated HTML reporting
+
 ## Test Scope / Covered Scenarios
 High-priority login and session scenarios:
 
@@ -12,13 +20,12 @@ High-priority login and session scenarios:
 - TC-06: Unauthorized inventory access validation
 
 ## Test Data
-The following test users are used for validation:
-- `standard_user` / `secret_sauce`
-    - Valid user for positive login scenarios
-- `locked_out_user` / `secret_sauce`
-    - Used to validate account lock behavior
-- Invalid credentials (e.g., wrong password)
-    - Used for negative testing and error handling validation
+
+| Username | Password | Description |
+|----------|----------|-------------|
+| standard_user | secret_sauce | Valid User |
+| locked_out_user | secret_sauce | Locked user |
+| standard_user | wrong_password | Invalid password case |
 
 ## Test Design Approach
 - Focusd on high-risk authentication and access control scenarios
@@ -74,16 +81,24 @@ npx playwright show-report
 npx playwright test
 ```
 
+### Sample Test Execution
+Playwright HTML report:
+
+![Test Report](screenshots/test-reporting.png)
+
 ## Reporting 
 - HTML report generated after execution:
 ```bash
 npx playwright show-report
 ```
 
-### Sample Test Execution
-Playwright HTML report:
+## What This Project Demonstrates
 
-![Test Report](screenshots/test-reporting.png)
+- Ability to design test scenarios based on risk (authentication & access control)
+- Implementation of maintainable automation using POM
+Understanding of cross-browser test execution
+Clean separation between test logic and UI interactions
+- Real-world QA practices applied to demo application
 
 ## Tech Stack
 - Playwright
